@@ -204,12 +204,10 @@ async def sse_once(_: Request):
         yield f"data: {json.dumps(payload, ensure_ascii=False)}\n\n"
 
     headers = {
+        "Access-Control-Allow-Origin": "*",
         "Cache-Control": "no-cache, no-store, must-revalidate",
-        "Pragma": "no-cache",
-        "Expires": "0",
         "Connection": "keep-alive",
         "X-Accel-Buffering": "no",
-        "Access-Control-Allow-Origin": "*",
         "Content-Type": "text/event-stream; charset=utf-8",
     }
 
