@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: odhf-mcp-fastapi
+    env: python
+    region: oregon
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      # Optional: if you don't commit the CSV
+      # - key: CSV_URL
+      #   value: https://<direct-statcan-csv-link>
